@@ -76,20 +76,20 @@ common_C_INCLUDES += $(LOCAL_PATH)/include
 # static library
 # =====================================================
 
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES:= $(common_SRC_FILES)
-LOCAL_C_INCLUDES:= $(common_C_INCLUDES)
-LOCAL_MODULE := liblzo-static
-LOCAL_PRELINK_MODULE:= false
-include $(BUILD_STATIC_LIBRARY)
-
-## dynamic library
-## =====================================================
-#
 #include $(CLEAR_VARS)
 #LOCAL_SRC_FILES:= $(common_SRC_FILES)
 #LOCAL_C_INCLUDES:= $(common_C_INCLUDES)
-#LOCAL_MODULE := liblzo
+#LOCAL_MODULE := liblzo-static
 #LOCAL_PRELINK_MODULE:= false
-#include $(BUILD_SHARED_LIBRARY)
+#include $(BUILD_STATIC_LIBRARY)
+
+# dynamic library
+# =====================================================
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES:= $(common_SRC_FILES)
+LOCAL_C_INCLUDES:= $(common_C_INCLUDES)
+LOCAL_MODULE := liblzo
+LOCAL_PRELINK_MODULE:= false
+include $(BUILD_SHARED_LIBRARY)
 
